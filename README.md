@@ -11,10 +11,11 @@ Create bold, animated GitHub profile cards with 20+ reusable themes. Each card i
 - SVG output that works in markdown, README files, and social cards
 
 ## Live Examples
+<div align="center">
 
 <img src="https://roxegetgithub-cards.vercel.app/api/github-card?username=torvalds&theme=starlight" />
 
-
+</div>
 - https://roxegetgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core
 - https://roxegetgithub-cards.vercel.app/api/github-card?username=sindresorhus&theme=aurora-mist
 - https://roxegetgithub-cards.vercel.app/api/github-card?username=defunkt&theme=hacker-terminal

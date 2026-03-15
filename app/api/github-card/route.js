@@ -215,6 +215,8 @@ export async function GET(req) {
   const color = searchParams.get("color") || theme.color;
   const accent = searchParams.get("accent") || theme.accent || color;
   const bg = searchParams.get("bg") || theme.bg;
+  const cardWidth = 700;
+  const cardHeight = 280;
 
   const buildTheme = (effect) => {
     switch (effect.type) {
@@ -257,15 +259,15 @@ export async function GET(req) {
             </linearGradient>
           `,
           backdrop: `
-            <rect width="700" height="220" rx="20" fill="url(#gridPattern)" />
+            <rect width="700" height="${cardHeight}" rx="20" fill="url(#gridPattern)" />
             <path fill="url(#waveGradient)" opacity="0.32">
               <animate attributeName="d"
                 dur="7s"
                 repeatCount="indefinite"
                 values="
-                M0 160 Q175 120 350 160 T700 160 V220 H0 Z;
-                M0 170 Q175 130 350 170 T700 170 V220 H0 Z;
-                M0 160 Q175 120 350 160 T700 160 V220 H0 Z
+                M0 160 Q175 120 350 160 T700 160 V${cardHeight} H0 Z;
+                M0 170 Q175 130 350 170 T700 170 V${cardHeight} H0 Z;
+                M0 160 Q175 120 350 160 T700 160 V${cardHeight} H0 Z
                 " />
             </path>
           `,
@@ -280,7 +282,7 @@ export async function GET(req) {
             </linearGradient>
           `,
           backdrop: `
-            <rect width="900" height="220" x="-200" fill="url(#sweepGradient)" opacity="0.7">
+            <rect width="900" height="${cardHeight}" x="-200" fill="url(#sweepGradient)" opacity="0.7">
               <animate attributeName="x" dur="9s" repeatCount="indefinite" values="-220;0;-220" />
             </rect>
           `,
@@ -342,7 +344,7 @@ export async function GET(req) {
             </pattern>
           `,
           backdrop: `
-            <rect width="700" height="220" rx="20" fill="url(#stripePattern)" />
+            <rect width="700" height="${cardHeight}" rx="20" fill="url(#stripePattern)" />
           `,
         };
       case "bokeh":
@@ -366,7 +368,7 @@ export async function GET(req) {
           defs: "",
           backdrop: `
             <rect width="700" height="10" y="20" fill="#${color}" fill-opacity="0.25">
-              <animate attributeName="y" dur="4s" repeatCount="indefinite" values="10;200;10" />
+              <animate attributeName="y" dur="4s" repeatCount="indefinite" values="10;${cardHeight - 20};10" />
             </rect>
           `,
         };
@@ -378,7 +380,7 @@ export async function GET(req) {
             </pattern>
           `,
           backdrop: `
-            <rect width="700" height="220" rx="20" fill="url(#terminalGrid)" />
+            <rect width="700" height="${cardHeight}" rx="20" fill="url(#terminalGrid)" />
             <rect x="420" y="30" width="240" height="12" fill="#${color}" fill-opacity="0.3">
               <animate attributeName="x" dur="6s" repeatCount="indefinite" values="420;460;420" />
             </rect>
@@ -400,7 +402,7 @@ export async function GET(req) {
             </linearGradient>
           `,
           backdrop: `
-            <rect width="120" height="220" x="520" fill="url(#beamGradient)">
+            <rect width="120" height="${cardHeight}" x="520" fill="url(#beamGradient)">
               <animate attributeName="x" dur="7s" repeatCount="indefinite" values="480;560;480" />
             </rect>
           `,
@@ -414,7 +416,7 @@ export async function GET(req) {
             </linearGradient>
           `,
           backdrop: `
-            <rect width="700" height="220" fill="url(#hazeGradient)">
+            <rect width="700" height="${cardHeight}" fill="url(#hazeGradient)">
               <animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0.2;0.5;0.2" />
             </rect>
           `,
@@ -428,7 +430,7 @@ export async function GET(req) {
             </pattern>
           `,
           backdrop: `
-            <rect width="700" height="220" fill="url(#dotPattern)" />
+            <rect width="700" height="${cardHeight}" fill="url(#dotPattern)" />
           `,
         };
       case "noise":
@@ -440,7 +442,7 @@ export async function GET(req) {
             </filter>
           `,
           backdrop: `
-            <rect width="700" height="220" filter="url(#noiseFilter)" opacity="0.08" />
+            <rect width="700" height="${cardHeight}" filter="url(#noiseFilter)" opacity="0.08" />
           `,
         };
       case "meteor":
@@ -510,7 +512,7 @@ export async function GET(req) {
             </pattern>
           `,
           backdrop: `
-            <rect width="700" height="220" rx="20" fill="url(#checkerPattern)" />
+            <rect width="700" height="${cardHeight}" rx="20" fill="url(#checkerPattern)" />
           `,
         };
       case "sparks":
@@ -538,7 +540,7 @@ export async function GET(req) {
             </pattern>
           `,
           backdrop: `
-            <rect width="700" height="220" rx="20" fill="url(#microGrid)" />
+            <rect width="700" height="${cardHeight}" rx="20" fill="url(#microGrid)" />
           `,
         };
       case "circuit":
@@ -550,7 +552,7 @@ export async function GET(req) {
             </pattern>
           `,
           backdrop: `
-            <rect width="700" height="220" rx="20" fill="url(#circuitPattern)" />
+            <rect width="700" height="${cardHeight}" rx="20" fill="url(#circuitPattern)" />
           `,
         };
       case "pulse":
@@ -631,7 +633,7 @@ export async function GET(req) {
     const themeMarkup = buildTheme(theme.effect);
 
     const svg = `
-    <svg width="700" height="220" viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100%" height="${cardHeight}" viewBox="0 0 ${cardWidth} ${cardHeight}" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: ${cardHeight}px;" xmlns="http://www.w3.org/2000/svg">
 
       <defs>
 
@@ -653,7 +655,7 @@ export async function GET(req) {
       </defs>
 
       <!-- Background -->
-      <rect width="700" height="220" rx="20" fill="#${bg}" />
+      <rect width="${cardWidth}" height="${cardHeight}" rx="20" fill="#${bg}" />
 
       ${themeMarkup.backdrop}
 
