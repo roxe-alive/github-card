@@ -2,7 +2,7 @@
 
 Create bold, animated GitHub profile cards with 20+ reusable themes. Each card is an SVG generated on demand via a single API endpoint and a `theme` parameter.
 
-**Domain:** https://roxe.getgithub-cards.vercel.app
+**Domain:** https://roxegetgithub-cards.vercel.app
 
 ## Features
 
@@ -12,9 +12,9 @@ Create bold, animated GitHub profile cards with 20+ reusable themes. Each card i
 
 ## Live Examples
 
-- https://roxe.getgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core
-- https://roxe.getgithub-cards.vercel.app/api/github-card?username=sindresorhus&theme=aurora-mist
-- https://roxe.getgithub-cards.vercel.app/api/github-card?username=defunkt&theme=hacker-terminal
+- https://roxegetgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core
+- https://roxegetgithub-cards.vercel.app/api/github-card?username=sindresorhus&theme=aurora-mist
+- https://roxegetgithub-cards.vercel.app/api/github-card?username=defunkt&theme=hacker-terminal
 
 ## API Usage
 
@@ -31,7 +31,7 @@ Optional overrides:
 Example:
 
 ```
-https://roxe.getgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core&color=22d3ee&accent=2563eb&bg=000000
+https://roxegetgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core&color=22d3ee&accent=2563eb&bg=000000
 ```
 
 ## Local Development
@@ -46,5 +46,5 @@ Open http://localhost:3000 to view the homepage and browse templates.
 ## Add a Card to Your README
 
 ```md
-![GitHub Card](https://roxe.getgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core)
+![GitHub Card](https://roxegetgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core)
 ```
