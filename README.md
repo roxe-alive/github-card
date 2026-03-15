@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GitHub Card Generator
 
-## Getting Started
+Create bold, animated GitHub profile cards with 20+ reusable themes. Each card is an SVG generated on demand via a single API endpoint and a `theme` parameter.
 
-First, run the development server:
+**Domain:** https://roxe.getgithub-cards.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- 20+ unique themes with animated backgrounds (grid, waves, radar, portal, particles, etc.)
+- One endpoint with `theme`, `username`, `color`, `accent`, and `bg` parameters
+- SVG output that works in markdown, README files, and social cards
+
+## Live Examples
+
+- https://roxe.getgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core
+- https://roxe.getgithub-cards.vercel.app/api/github-card?username=sindresorhus&theme=aurora-mist
+- https://roxe.getgithub-cards.vercel.app/api/github-card?username=defunkt&theme=hacker-terminal
+
+## API Usage
+
+```
+/api/github-card?username=<github-handle>&theme=<theme-id>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Optional overrides:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `color` - main accent color (hex without `#`)
+- `accent` - secondary accent color (hex without `#`)
+- `bg` - background color (hex without `#`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Example:
 
-## Learn More
+```
+https://roxe.getgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core&color=22d3ee&accent=2563eb&bg=000000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Local Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open http://localhost:3000 to view the homepage and browse templates.
 
-## Deploy on Vercel
+## Add a Card to Your README
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```md
+![GitHub Card](https://roxe.getgithub-cards.vercel.app/api/github-card?username=octocat&theme=neon-core)
+```
